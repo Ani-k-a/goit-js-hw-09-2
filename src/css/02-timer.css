@@ -1,0 +1,15 @@
+.body {
+    padding: 30px 200px;
+}
+.timer {
+    margin-top: 30px;
+    display: flex;
+    
+}
+.field:not(:last-child) {
+    margin-right: 10px;
+}
+
+.value {
+    font-size: 25px;
+}
