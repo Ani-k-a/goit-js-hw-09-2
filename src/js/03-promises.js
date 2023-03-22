@@ -1,10 +1,12 @@
+import Notiflix from 'notiflix';
+
 const form = document.querySelector('.form');
 const amount = document.querySelector("[name='amount']");
-const delay = document.querySelector("[name='delay']")
+const delay = document.querySelector("[name='delay']");
+const step = document.querySelector("[name='step']");
+
 const setIntervalID = null;
 let counter = 0;
-
-
 
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
@@ -20,12 +22,14 @@ function createPromise(position, delay) {
 
 const onClick = (event) => {
   event.preventDefault();
-  for (let index = 1; index <= amount.value; index++) {
-    createPromise(index, delay.value).then((value)=>{console.log(value)})
-    .catch((value)=>{console.log(value)})
-
-  }
-
+ 
+    for (let index = 1; index <= amount.value; index++) {
+      const timeout = Number(delay.value) + Number(step.value) * index;
+      setTimeout(() => {
+        createPromise(index, delay.value).then((value) => { Notiflix.Notify.success(value);})
+          .catch((value) => {Notiflix.Notify.warning(value);})
+      }, timeout)
+    }
 };
 
 
