@@ -39,9 +39,6 @@ form.addEventListener('submit', onClick);
 
 
 
-
-
-
 // HomeWork
 // 1. Добавити розмітку
 // 2. Добавити 'submit' addEventListener на форму
@@ -49,7 +46,7 @@ form.addEventListener('submit', onClick);
 // 4. Використати 'amount' як кількість запуску функції 'createPromise'
 // 5. Викликати createPromise(position, delay) n разів
 // і використати index як 'position' і delay =  (delay + step * index) із форми
-//
+
 
 // document.querySelector('.form').addEventListener('submit', (e) => {
 //   e.preventDefault();
