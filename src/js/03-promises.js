@@ -1,20 +1,32 @@
 const form = document.querySelector('.form');
+const amount = document.querySelector("[name='amount']");
+const delay = document.querySelector("[name='delay']")
 const setIntervalID = null;
 let counter = 0;
 
+
+
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
-  if (shouldResolve) {
-    // Fulfill
-  } else {
-    // Reject
-  }
+  return new Promise((resolve, reject) => {
+    if (shouldResolve) {
+      resolve("Sucsess");
+    } else {
+      reject('Error');
+    }
+  })
 }
 
-const onClick = () => {
-    setIntervalID = setInterval(() => {createPromise(), 
-      counter++;
-    }, form.step)};
+
+const onClick = (event) => {
+  event.preventDefault();
+  for (let index = 1; index <= amount.value; index++) {
+    createPromise(index, delay.value).then((value)=>{console.log(value)})
+    .catch((value)=>{console.log(value)})
+
+  }
+
+};
 
 
 form.addEventListener('submit', onClick);
